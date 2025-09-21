@@ -5,7 +5,10 @@ import { scrapeSokker } from './index.js';
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://tu-dominio-nextjs.vercel.app'], // Agrega tus URLs
+  credentials: true
+}));
 app.use(express.json());
 
 // Ruta para health check
